@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "template-sandbox"
+version = "0.1.0"
+description = "Sandbox for creating a reproducible research modern python template. In the future it might become a cookiecutter template."
+authors = ["Ricardo Guimarães <rfguimaraes0@gmail.com>"]
+readme = "README.md"
+packages = [{include = "template_sandbox"}]
+
+[tool.poetry.dependencies]
+python = "~3.9"
+conda-lock = "^1.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

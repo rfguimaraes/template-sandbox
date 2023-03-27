@@ -1,0 +1,13 @@
+name: temp-sand
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.9
+  - mamba
+  - pip
+  - poetry
+
+# Non-standard section listing target platforms for conda-lock:
+platforms:
+  - linux-64
