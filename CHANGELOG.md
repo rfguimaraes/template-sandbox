@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2023 The Template-Sandbox Authors
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Changelog
 
 ## Version 0.1.0 (development)
