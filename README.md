@@ -7,8 +7,8 @@ SPDX-License-Identifier: Apache-2.0
 # Components
 
 ## Files
-[ ] AUTHORS.md
-[ ] CHANGELOG.md
+[x] AUTHORS.md
+[x] CHANGELOG.md
 [ ] CONTRIBUTING.md
 [x] README.md
 
@@ -24,7 +24,8 @@ SPDX-License-Identifier: Apache-2.0
 [x] pre-commit
 
 ## License management
-[ ] REUSE
+[x] REUSE
+[ ] REUSE pre-commit hook
 
 ## Testing
 [ ] pytest
