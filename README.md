@@ -1,7 +1,7 @@
 <!--
 SPDX-FileCopyrightText: 2023 The Template-Sandbox Authors
 
-SPDX-License-Identifier: Apache-2.0
+SPDX-License-Identifier: CC-BY-4.0
 -->
 
 # Components
