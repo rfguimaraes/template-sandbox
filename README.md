@@ -25,6 +25,7 @@ SPDX-License-Identifier: CC-BY-4.0
 ## Hooks
 
 - [x] pre-commit
+- [x] pre-commit-hooks
 
 ## License management
 
