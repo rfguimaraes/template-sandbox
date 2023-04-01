@@ -29,3 +29,6 @@ pytest = "^7.2.2"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+template-sandbox = "template_sandbox.greeter:main"
