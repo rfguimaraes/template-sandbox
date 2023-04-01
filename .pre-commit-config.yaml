@@ -10,23 +10,28 @@ repos:
     - id: check-yaml
     - id: trailing-whitespace
 
-  - repo: https://github.com/fsfe/reuse-tool
-    rev: v1.1.2
+  - repo: local
     hooks:
       - id: reuse
+        name: reuse
+        entry: poetry run reuse lint
+        language: python
+        pass_filenames: false
+        language_version: python3.9
 
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    # Ruff version.
-    rev: 'v0.0.260'
+  - repo: local
     hooks:
       - id: ruff
+        name: ruff
+        entry: poetry run ruff check --force-exclude
+        language: system
+        types: [python]
+        require_serial: true
 
-  - repo: https://github.com/psf/black
-    rev: 23.3.0
+  - repo: local
     hooks:
       - id: black
-        # It is recommended to specify the latest version of Python
-        # supported by your project here, or alternatively use
-        # pre-commit's default_language_version, see
-        # https://pre-commit.com/#top_level-default_language_version
-        language_version: python3.9
+        name: black
+        entry: poetry run black
+        language: system
+        types: [python]
