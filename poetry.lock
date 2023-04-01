@@ -13,6 +13,22 @@ files = [
 ]
 
 [[package]]
+name = "argcomplete"
+version = "2.1.2"
+description = "Bash tab completion for argparse"
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "argcomplete-2.1.2-py3-none-any.whl", hash = "sha256:4ba9cdaa28c361d251edce884cd50b4b1215d65cdc881bd204426cdde9f52731"},
+    {file = "argcomplete-2.1.2.tar.gz", hash = "sha256:fc82ef070c607b1559b5c720529d63b54d9dcf2dcfc2632b10e6372314a34457"},
+]
+
+[package.extras]
+lint = ["flake8", "mypy"]
+test = ["coverage", "flake8", "mypy", "pexpect", "wheel"]
+
+[[package]]
 name = "attrs"
 version = "22.2.0"
 description = "Classes Without Boilerplate"
@@ -351,6 +367,24 @@ files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
 ]
+
+[[package]]
+name = "colorlog"
+version = "6.7.0"
+description = "Add colours to the output of Python's logging module."
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "colorlog-6.7.0-py2.py3-none-any.whl", hash = "sha256:0d33ca236784a1ba3ff9c532d4964126d8a2c44f1f0cb1d2b0728196f512f662"},
+    {file = "colorlog-6.7.0.tar.gz", hash = "sha256:bd94bd21c1e13fac7bd3153f4bc3a7dc0eb0974b8bc2fdf1a989e474f6e582e5"},
+]
+
+[package.dependencies]
+colorama = {version = "*", markers = "sys_platform == \"win32\""}
+
+[package.extras]
+development = ["black", "flake8", "mypy", "pytest", "types-colorama"]
 
 [[package]]
 name = "conda-lock"
@@ -920,6 +954,27 @@ files = [
 setuptools = "*"
 
 [[package]]
+name = "nox"
+version = "2022.11.21"
+description = "Flexible test automation."
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "nox-2022.11.21-py3-none-any.whl", hash = "sha256:0e41a990e290e274cb205a976c4c97ee3c5234441a8132c8c3fd9ea3c22149eb"},
+    {file = "nox-2022.11.21.tar.gz", hash = "sha256:e21c31de0711d1274ca585a2c5fde36b1aa962005ba8e9322bf5eeed16dcd684"},
+]
+
+[package.dependencies]
+argcomplete = ">=1.9.4,<3.0"
+colorlog = ">=2.6.1,<7.0.0"
+packaging = ">=20.9"
+virtualenv = ">=14"
+
+[package.extras]
+tox-to-nox = ["jinja2", "tox"]
+
+[[package]]
 name = "packaging"
 version = "23.0"
 description = "Core utilities for Python packages"
@@ -1475,4 +1530,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.9"
-content-hash = "0e0be2471941a537b135b71bbff39d4843febac3f769c03c775ad09ccc17335f"
+content-hash = "aa8a1b4f3b153ca19d3909f8306f3e987d72cf43b9bc8783e9d006613c9adb43"
