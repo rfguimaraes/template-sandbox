@@ -46,3 +46,8 @@ SPDX-License-Identifier: CC-BY-4.0
 - [x] black
 - [x] black pre-commit hook
 - [x] safety
+
+## Type checking
+
+- [x] Mypy
+- [ ] Typeguard

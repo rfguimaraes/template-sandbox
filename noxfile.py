@@ -22,7 +22,7 @@ def install_on_nox_from_poetry_lock(session, poetry_args, *args, **kwargs):
 
 
 locations = "src", "tests", "noxfile.py"
-nox.options.sessions = "lint", "safety", "tests"
+nox.options.sessions = "lint", "safety", "tests", "type"
 
 
 @nox.session(python=["3.9"])
@@ -51,7 +51,7 @@ def black(session):
     session.run("black", *args)
 
 
-@nox.session(python="3.9")
+@nox.session(python=["3.9"])
 def safety(session):
     with tempfile.NamedTemporaryFile() as requirements:
         session.run(
@@ -65,3 +65,14 @@ def safety(session):
         )
         install_on_nox_from_poetry_lock(session, ("--only", "lint"), "safety")
         session.run("safety", "check", f"--file={requirements.name}", "--full-report")
+
+
+@nox.session(python=["3.9"])
+def mypy(session):
+    args = session.posargs or locations
+    # Workaround the need of poetry inside the nox session.
+    # It is easier to skip this file from mypy check.
+    args = tuple([x for x in args if x != "noxfile.py"])
+    install_on_nox_from_poetry_lock(session, ("--with", "type"), "mypy")
+    session.run("poetry", "install", "--only", "main", external=True)
+    session.run("mypy", *args)
