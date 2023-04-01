@@ -34,3 +34,14 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 template-sandbox = "template_sandbox.greeter:main"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["template_sandbox"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
