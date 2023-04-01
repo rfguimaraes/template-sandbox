@@ -38,3 +38,7 @@ SPDX-License-Identifier: CC-BY-4.0
 - [x] pytest-cov
 - [x] nox
 - [x] pytest-mock
+
+## Lint
+
+- [x] black
