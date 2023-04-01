@@ -3,12 +3,31 @@
 # SPDX-License-Identifier: Apache-2.0
 
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0  # Use the ref you want to point at
+  - repo: local
     hooks:
     - id: trailing-whitespace
+      name: trailing-whitespace
+      entry: trailing-whitespace-fixer
+      language: python
+      types: [text]
+      stages: [commit, push, manual]
+      additional_dependencies:
+        - pre-commit-hooks
     - id: check-yaml
-    - id: trailing-whitespace
+      name: check-yaml
+      entry: check-yaml
+      language: python
+      types: [yaml]
+      additional_dependencies:
+        - pre-commit-hooks
+    - id: end-of-file-fixer
+      name: end-of-file-fixer
+      entry: end-of-file-fixer
+      language: python
+      types: [text]
+      stages: [commit, push, manual]
+      additional_dependencies:
+        - pre-commit-hooks
 
   - repo: local
     hooks:

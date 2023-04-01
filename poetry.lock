@@ -1180,6 +1180,22 @@ pyyaml = ">=5.1"
 virtualenv = ">=20.10.0"
 
 [[package]]
+name = "pre-commit-hooks"
+version = "4.4.0"
+description = "Some out-of-the-box hooks for pre-commit."
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "pre_commit_hooks-4.4.0-py2.py3-none-any.whl", hash = "sha256:fc8837335476221ccccda3d176ed6ae29fe58753ce7e8b7863f5d0f987328fc6"},
+    {file = "pre_commit_hooks-4.4.0.tar.gz", hash = "sha256:7011eed8e1a25cde94693da009cba76392194cecc2f3f06c51a44ea6ad6c2af9"},
+]
+
+[package.dependencies]
+"ruamel.yaml" = ">=0.15"
+tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
+
+[[package]]
 name = "pycparser"
 version = "2.21"
 description = "C parser in Python"
@@ -1729,4 +1745,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.9"
-content-hash = "11bcf6792e1e52fc99a64c52bdf4c141556a1e10e0a8e272c1666d5861a51662"
+content-hash = "15fc6de689dccec12ee0421b1c0546ad48527d90e7e6f5c779c44aa07ee9f58f"
