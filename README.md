@@ -36,5 +36,5 @@ SPDX-License-Identifier: CC-BY-4.0
 - [x] pytest
 - [x] Coverage.py
 - [x] pytest-cov
-- [ ] nox
+- [x] nox
 - [ ] pytest-mock
