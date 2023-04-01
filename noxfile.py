@@ -12,22 +12,22 @@ nox.options.sessions = "lint", "safety" "tests"
 
 @nox.session(python=["3.9"])
 def tests(session):
-    args = session.posargs or ["--cov"]
-    session.run("poetry", "install", external=True)
+    args = session.posargs or ["--cov", "-m", "not e2e"]
+    session.run("poetry", "install", "--only-root", external=True)
     session.run("pytest", *args)
 
 
 @nox.session(python=["3.9"])
 def lint(session):
     args = session.posargs or locations
-    session.run("poetry", "install", external=True)
+    session.run("poetry", "install", "--no-root", "--only", "lint", external=True)
     session.run("ruff", "check", *args)
 
 
 @nox.session(python=["3.9"])
 def black(session):
     args = session.posargs or locations
-    session.run("poetry", "install", external=True)
+    session.run("poetry", "install", "--no-root", "--only", "lint", external=True)
     session.run("black", *args)
 
 
@@ -43,5 +43,5 @@ def safety(session):
             f"--output={requirements.name}",
             external=True,
         )
-        session.install("safety")
+        session.run("poetry", "install", "--no-root", "--only", "lint", external=True)
         session.run("safety", "check", f"--file={requirements.name}", "--full-report")
