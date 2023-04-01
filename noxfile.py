@@ -4,30 +4,50 @@
 
 import tempfile
 import nox
+from poetry.factory import Factory
+
+
+def install_on_nox_from_poetry_lock(session, poetry_args, *args, **kwargs):
+    with tempfile.NamedTemporaryFile() as constraints:
+        session.run(
+            "poetry",
+            "export",
+            *poetry_args,
+            "--format=constraints.txt",
+            "--without-hashes",
+            f"--output={constraints.name}",
+            external=True,
+        )
+        session.install(f"--constraint={constraints.name}", *args, **kwargs)
 
 
 locations = "src", "tests", "noxfile.py"
-nox.options.sessions = "lint", "safety" "tests"
+nox.options.sessions = "lint", "safety", "tests"
 
 
 @nox.session(python=["3.9"])
 def tests(session):
     args = session.posargs or ["--cov", "-m", "not e2e"]
-    session.run("poetry", "install", "--only-root", external=True)
+    config = Factory().create_poetry()
+    dependencies = config.package.dependency_group("test").dependencies
+    names = list(map(lambda x: x.name, dependencies))
+    names.remove("nox")
+    install_on_nox_from_poetry_lock(session, ("--with", "test"), *names)
+    session.run("poetry", "install", "--only", "main", external=True)
     session.run("pytest", *args)
 
 
 @nox.session(python=["3.9"])
 def lint(session):
     args = session.posargs or locations
-    session.run("poetry", "install", "--no-root", "--only", "lint", external=True)
+    install_on_nox_from_poetry_lock(session, ("--only", "lint"), "ruff")
     session.run("ruff", "check", *args)
 
 
 @nox.session(python=["3.9"])
 def black(session):
     args = session.posargs or locations
-    session.run("poetry", "install", "--no-root", "--only", "lint", external=True)
+    install_on_nox_from_poetry_lock(session, ("--only", "lint"), "black")
     session.run("black", *args)
 
 
@@ -43,5 +63,5 @@ def safety(session):
             f"--output={requirements.name}",
             external=True,
         )
-        session.run("poetry", "install", "--no-root", "--only", "lint", external=True)
+        install_on_nox_from_poetry_lock(session, ("--only", "lint"), "safety")
         session.run("safety", "check", f"--file={requirements.name}", "--full-report")
