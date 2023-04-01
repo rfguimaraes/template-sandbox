@@ -41,4 +41,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ## Lint
 
+- [x] ruff
 - [x] black
+- [x] black pre-commit hook
+- [x] safety
