@@ -29,7 +29,7 @@ SPDX-License-Identifier: CC-BY-4.0
 ## License management
 
 - [x] REUSE
-- [ ] REUSE pre-commit hook
+- [x] REUSE pre-commit hook
 
 ## Testing
 
