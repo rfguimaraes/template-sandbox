@@ -33,6 +33,7 @@ pytest-mock = "^3.10.0"
 
 [tool.poetry.group.lint.dependencies]
 ruff = "^0.0.260"
+black = "^23.3.0"
 
 [build-system]
 requires = ["poetry-core"]

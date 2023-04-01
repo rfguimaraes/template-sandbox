@@ -6,6 +6,7 @@ import nox
 
 
 locations = "src", "tests", "noxfile.py"
+nox.options.sessions = "lint", "tests"
 
 
 @nox.session(python=["3.9"])
@@ -20,3 +21,10 @@ def lint(session):
     args = session.posargs or locations
     session.run("poetry", "install", external=True)
     session.run("ruff", "check", *args)
+
+
+@nox.session(python=["3.9"])
+def black(session):
+    args = session.posargs or locations
+    session.run("poetry", "install", external=True)
+    session.run("black", *args)
