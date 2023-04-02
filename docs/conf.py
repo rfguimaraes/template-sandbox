@@ -6,5 +6,10 @@
 
 project = "template-sandbox"
 author = "The Template-Sandbox Authors"
-extensions = ["myst_parser"]
+extensions = [
+    "myst_parser",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
+    "sphinx_autodoc_typehints",
+]
 project_copyright = f"2023, {author}"
