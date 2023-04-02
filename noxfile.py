@@ -9,6 +9,9 @@ import nox
 from poetry.factory import Factory
 
 
+package = "template_sandbox"
+
+
 def _install_on_nox_from_poetry_lock(
     session: nox.Session,
     poetry_args: tuple,
@@ -42,6 +45,19 @@ def tests(session: nox.Session) -> None:
     _install_on_nox_from_poetry_lock(session, ("--with", "test"), *names)
     session.run("poetry", "install", "--only", "main", external=True)
     session.run("pytest", *args)
+
+
+@nox.session(python=["3.9"])
+def typeguard(session: nox.Session) -> None:
+    """Run tests with additional typecheck."""
+    args = session.posargs or ["-m", "not e2e"]
+    config = Factory().create_poetry()
+    dependencies = config.package.dependency_group("test").dependencies
+    dependencies.extend(config.package.dependency_group("type").dependencies)
+    names = [x.name for x in dependencies if str(x.name) != "nox"]
+    _install_on_nox_from_poetry_lock(session, ("--with", "test,type"), *names)
+    session.run("poetry", "install", "--only", "main", external=True)
+    session.run("pytest", f"--typeguard-packages={package}", *args)
 
 
 @nox.session(python=["3.9"])
