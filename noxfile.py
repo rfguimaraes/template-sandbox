@@ -31,7 +31,7 @@ def _install_on_nox_from_poetry_lock(
         session.install(f"--constraint={constraints.name}", *args, **kwargs)
 
 
-locations = "src", "tests", "noxfile.py"
+locations = "src", "tests", "noxfile.py", "docs/conf.py"
 nox.options.sessions = "lint", "safety", "tests", "type"
 
 
@@ -109,3 +109,13 @@ def mypy(session: nox.Session) -> None:
     _install_on_nox_from_poetry_lock(session, ("--with", "type"), "mypy")
     session.run("poetry", "install", "--only", "main", external=True)
     session.run("mypy", *args)
+
+
+@nox.session(python=["3.9"])
+def docs(session: nox.Session) -> None:
+    """Build the documentation using Sphinx."""
+    config = Factory().create_poetry()
+    dependencies = config.package.dependency_group("docs").dependencies
+    names = [x.name for x in dependencies if str(x.name) != "nox"]
+    _install_on_nox_from_poetry_lock(session, ("--only", "docs"), *names)
+    session.run("sphinx-build", "docs", "docs/_build")
