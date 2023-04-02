@@ -32,7 +32,7 @@ def _install_on_nox_from_poetry_lock(
 
 
 locations = "src", "tests", "noxfile.py", "docs/conf.py"
-nox.options.sessions = "lint", "safety", "tests", "type"
+nox.options.sessions = "lint", "safety", "tests", "mypy"
 
 
 @nox.session(python=["3.9"])
