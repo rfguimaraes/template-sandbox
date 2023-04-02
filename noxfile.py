@@ -61,6 +61,15 @@ def typeguard(session: nox.Session) -> None:
 
 
 @nox.session(python=["3.9"])
+def xdoctest(session: nox.Session) -> None:
+    """Test examples in documentation with xdoctest."""
+    args = session.posargs or ["all"]
+    _install_on_nox_from_poetry_lock(session, ("--with", "docs"), "xdoctest")
+    session.run("poetry", "install", "--only", "main", external=True)
+    session.run("python", "-m", "xdoctest", package, *args)
+
+
+@nox.session(python=["3.9"])
 def lint(session: nox.Session) -> None:
     """Lint check with ruff."""
     args = session.posargs or locations
@@ -97,8 +106,6 @@ def safety(session: nox.Session) -> None:
 def mypy(session: nox.Session) -> None:
     """Type check with mypy."""
     args = session.posargs or locations
-    # Workaround the need of poetry inside the nox session.
-    # It is easier to skip this file from mypy check.
     _install_on_nox_from_poetry_lock(session, ("--with", "type"), "mypy")
     session.run("poetry", "install", "--only", "main", external=True)
     session.run("mypy", *args)
