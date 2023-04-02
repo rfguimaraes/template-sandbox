@@ -50,4 +50,4 @@ SPDX-License-Identifier: CC-BY-4.0
 ## Type checking
 
 - [x] Mypy (Consider `dmypy` in the future)
-- [ ] Typeguard
+- [x] Typeguard
