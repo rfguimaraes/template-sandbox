@@ -51,3 +51,9 @@ SPDX-License-Identifier: CC-BY-4.0
 
 - [x] Mypy (Consider `dmypy` in the future)
 - [x] Typeguard
+
+## Documentation
+
+- [ ] xdoctest
+- [ ] Sphinx
+- [ ] MyST
