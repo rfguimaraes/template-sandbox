@@ -12,8 +12,8 @@ from poetry.factory import Factory
 def _install_on_nox_from_poetry_lock(
     session: nox.Session,
     poetry_args: tuple,
-    *args: list,
-    **kwargs: dict,
+    *args: str,
+    **kwargs: str,
 ) -> None:
     with tempfile.NamedTemporaryFile() as constraints:
         session.run(
@@ -38,8 +38,7 @@ def tests(session: nox.Session) -> None:
     args = session.posargs or ["--cov", "-m", "not e2e"]
     config = Factory().create_poetry()
     dependencies = config.package.dependency_group("test").dependencies
-    names = [x.name for x in dependencies]
-    names.remove("nox")
+    names = [x.name for x in dependencies if str(x.name) != "nox"]
     _install_on_nox_from_poetry_lock(session, ("--with", "test"), *names)
     session.run("poetry", "install", "--only", "main", external=True)
     session.run("pytest", *args)
@@ -84,7 +83,6 @@ def mypy(session: nox.Session) -> None:
     args = session.posargs or locations
     # Workaround the need of poetry inside the nox session.
     # It is easier to skip this file from mypy check.
-    args = tuple([x for x in args if x != "noxfile.py"])
     _install_on_nox_from_poetry_lock(session, ("--with", "type"), "mypy")
     session.run("poetry", "install", "--only", "main", external=True)
     session.run("mypy", *args)
