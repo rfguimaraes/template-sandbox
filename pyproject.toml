@@ -40,6 +40,7 @@ safety = "^2.3.5"
 
 [tool.poetry.group.type.dependencies]
 mypy = "^1.1.1"
+typeguard = "^3.0.2"
 
 [build-system]
 requires = ["poetry-core"]
