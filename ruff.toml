@@ -46,3 +46,6 @@ target-version = "py39"
 [mccabe]
 # Unlike Flake8, default to a complexity level of 10.
 max-complexity = 10
+
+[per-file-ignores]
+"tests/*" = ["S101"]
