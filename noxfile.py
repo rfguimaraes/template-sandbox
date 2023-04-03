@@ -41,7 +41,7 @@ def tests(session: nox.Session) -> None:
     args = session.posargs or ["--cov", "-m", "not e2e"]
     config = Factory().create_poetry()
     dependencies = config.package.dependency_group("test").dependencies
-    names = [x.name for x in dependencies if str(x.name) != "nox"]
+    names = [x.name for x in dependencies]
     _install_on_nox_from_poetry_lock(session, ("--with", "test"), *names)
     session.run("poetry", "install", "--only", "main", external=True)
     session.run("pytest", *args)
@@ -54,7 +54,7 @@ def typeguard(session: nox.Session) -> None:
     config = Factory().create_poetry()
     dependencies = config.package.dependency_group("test").dependencies
     dependencies.extend(config.package.dependency_group("type").dependencies)
-    names = [x.name for x in dependencies if str(x.name) != "nox"]
+    names = [x.name for x in dependencies]
     _install_on_nox_from_poetry_lock(session, ("--with", "test,type"), *names)
     session.run("poetry", "install", "--only", "main", external=True)
     session.run("pytest", f"--typeguard-packages={package}", *args)
@@ -116,7 +116,7 @@ def docs(session: nox.Session) -> None:
     """Build the documentation using Sphinx."""
     config = Factory().create_poetry()
     dependencies = config.package.dependency_group("docs").dependencies
-    names = [x.name for x in dependencies if str(x.name) != "nox"]
+    names = [x.name for x in dependencies]
     _install_on_nox_from_poetry_lock(session, ("--with", "docs"), *names)
     session.run("poetry", "install", "--only", "main", external=True)
     session.run("sphinx-build", "docs", "docs/_build")
