@@ -60,3 +60,11 @@ SPDX-License-Identifier: CC-BY-4.0
 - [x] autodoc
 - [x] napoleon
 - [x] sphinx-autodoc-typehints
+
+## CI/CD
+
+- [x] Trufflehog
+- [ ] Drone CI/CD
+- [ ] Coverage
+- [ ] Release Drafter
+- [ ] TestPyPI
