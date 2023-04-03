@@ -65,6 +65,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 - [x] Trufflehog
 - [ ] Drone CI/CD
+- [x] frp
 - [ ] Coverage
 - [ ] Release Drafter
 - [ ] TestPyPI
