@@ -9,7 +9,7 @@ SPDX-License-Identifier: CC-BY-4.0
 This project is a simple template that I am building for my own python projects.
 Among mostly on these pieces of writing:
 
-- [Hypermodern Python by Claudio Jolowicz]{https://cjolowicz.github.io/posts/hypermodern-python-01-setup}
+- [Hypermodern Python by Claudio Jolowicz](https://cjolowicz.github.io/posts/hypermodern-python-01-setup)
 - [This answer by michau on StackOverflow](https://stackoverflow.com/a/71110028)
 - [An opinionated guide to Python environments in 2021 by James Ravenscroft](https://brainsteam.co.uk/2021/04/01/opinionated-guide-to-virtualenvs/)
 
