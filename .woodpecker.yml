@@ -2,32 +2,14 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-kind: pipeline
-name: Tests
-
-trigger:
-  event:
-  - push
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: Checkout code
-  image: alpine/git
-  commands:
-  - git clone ${DRONE_REPO}
-  - cd ${DRONE_REPO_NAME}
-  - git checkout ${DRONE_COMMIT_SHA}
-
-- name: Install dependencies
-  image: python:3.9-slim
-  commands:
-  - pip install nox==2022.11.21
-  - pip install poetry==1.4.1
-
-- name: Run tests
-  image: python:3.9-slim
-  commands:
-  - nox
+pipeline:
+  install:
+    image: python:3.9-slim
+    commands:
+      - pip install nox==2022.11.21
+      - pip instal poetry==1.4.1
+      - poetry install --all-extras
+  tests:
+    image: python:3.9-slim
+    commands:
+      - nox
