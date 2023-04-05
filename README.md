@@ -60,11 +60,11 @@ SPDX-License-Identifier: CC-BY-4.0
 - [x] autodoc
 - [x] napoleon
 - [x] sphinx-autodoc-typehints
+- [ ] Towncrier
 
 ## CI/CD
 
 - [x] Trufflehog
 - [x] Woodpecker CI/CD setup
 - [x] Build recipe
-- [ ] Release Drafter
 - [ ] TestPyPI
