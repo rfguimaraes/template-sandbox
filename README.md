@@ -68,3 +68,4 @@ SPDX-License-Identifier: CC-BY-4.0
 - [x] Woodpecker CI/CD setup
 - [x] Build recipe
 - [ ] TestPyPI
+- [ ] ReadTheDocs
