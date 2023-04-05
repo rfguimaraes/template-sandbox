@@ -65,7 +65,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 - [x] Trufflehog
 - [x] Woodpecker CI/CD setup
-- [ ] Build recipe
+- [x] Build recipe
 - [ ] Coverage
 - [ ] Release Drafter
 - [ ] TestPyPI
