@@ -4,31 +4,31 @@
 
 version: "3.8"
 services:
-  drone-server:
-    image: drone/drone:latest
+  woodpecker-server:
+    image: woodpeckerci/woodpecker-server:latest
     ports:
-      - 8082:80
+      - 8082:8000
     volumes:
-      - ./data:/data
-    restart: always
+      - woodpecker-server-data:/var/lib/woodpecker/
     environment:
-      - DRONE_AGENTS_ENABLED=true
-      - DRONE_GITHUB_SERVER=https://github.com
-      - DRONE_GITHUB_CLIENT_ID=${DRONE_GITHUB_CLIENT_ID}
-      - DRONE_GITHUB_CLIENT_SECRET=${DRONE_GITHUB_CLIENT_SECRET}
-      - DRONE_SERVER_HOST=${DRONE_SERVER_HOST}
-      - DRONE_COOKIE_SECRET=${DRONE_COOKIE_SECRET}
-      - DRONE_SERVER_PROTO=http
-      - DRONE_TLS_AUTOCERT=true
-  drone-runner:
-    image: drone/drone-runner-docker:latest
+      - WOODPECKER_OPEN=true
+      - WOODPECKER_HOST=${WOODPECKER_HOST}
+      - WOODPECKER_GITHUB=true
+      - WOODPECKER_GITHUB_CLIENT=${WOODPECKER_GITHUB_CLIENT}
+      - WOODPECKER_GITHUB_SECRET=${WOODPECKER_GITHUB_SECRET}
+      - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
+
+  woodpecker-agent:
+    image: woodpeckerci/woodpecker-agent:latest
+    command: agent
     restart: always
     depends_on:
-      - drone-server
+      - woodpecker-server
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - DRONE_RPC_PROTO=https
-      - DRONE_RPC_HOST=${DRONE_SERVER_HOST}
-      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
-      - DRONE_RUNNER_CAPACITY=2
+      - WOODPECKER_SERVER=woodpecker-server:9000
+      - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
+
+volumes:
+  woodpecker-server-data:
