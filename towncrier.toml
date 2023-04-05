@@ -4,7 +4,7 @@
 
 [tool.towncrier]
 # The name of your Python package
-package = "template-sandbox"
+package = "template_sandbox"
 # The path to your Python package.
 # If your package lives in 'src/myproject/', it must be 'src',
 # but if you don't keep your code in a 'src' dir, remove the
