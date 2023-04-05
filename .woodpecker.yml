@@ -3,13 +3,10 @@
 # SPDX-License-Identifier: Apache-2.0
 
 pipeline:
-  install:
+  tests:
     image: python:3.9-slim
     commands:
       - pip install nox==2022.11.21
       - pip install poetry==1.4.1
       - poetry install --all-extras
-  tests:
-    image: python:3.9-slim
-    commands:
       - nox
