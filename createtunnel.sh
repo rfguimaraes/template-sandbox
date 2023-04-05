@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-docker run --rm -it --net host node:alpine npx --yes localtunnel --port 8080
+docker run --rm -it --net host node:alpine npx --yes localtunnel --port 8082

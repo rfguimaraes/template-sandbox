@@ -7,10 +7,9 @@ services:
   drone-server:
     image: drone/drone:latest
     ports:
-      - 8080:80
+      - 8082:80
     volumes:
       - ./data:/data
-      - .:/drone/src
     restart: always
     environment:
       - DRONE_AGENTS_ENABLED=true
