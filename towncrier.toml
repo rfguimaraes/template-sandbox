@@ -1,0 +1,56 @@
+# SPDX-FileCopyrightText: 2023 The Template-Sandbox Authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+[tool.towncrier]
+# The name of your Python package
+package = "template-sandbox"
+# The path to your Python package.
+# If your package lives in 'src/myproject/', it must be 'src',
+# but if you don't keep your code in a 'src' dir, remove the
+# config option
+package_dir = "src"
+# Where you want your news files to come out. This can be .rst
+# or .md, towncrier's default template works with both.
+filename = "CHANGELOG.md"
+directory = "changelog.d"
+start_string = "<!-- towncrier release notes start -->\n"
+underlines = ["", "", ""]
+template = "changelog.d/changelog_template.jinja"
+title_format = "## [{version}](https://github.com/twisted/my-project/tree/{version}) - {project_date}"
+issue_format = "[#{issue}](https://github.com/twisted/my-project/issues/{issue})"
+
+[[tool.towncrier.type]]
+directory = "security"
+name = "Security"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "removed"
+name = "Removed"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "deprecated"
+name = "Deprecated"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "added"
+name = "Added"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "changed"
+name = "Changed"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "fixed"
+name = "Fixed"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "uncategorised"
+name = "Uncategorised"
+showcontent = true

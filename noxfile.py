@@ -119,4 +119,5 @@ def docs(session: nox.Session) -> None:
     names = [x.name for x in dependencies]
     _install_on_nox_from_poetry_lock(session, ("--with", "docs"), *names)
     session.run("poetry", "install", "--only", "main", external=True)
+    session.run("towncrier")
     session.run("sphinx-build", "docs", "docs/_build")

@@ -60,7 +60,7 @@ SPDX-License-Identifier: CC-BY-4.0
 - [x] autodoc
 - [x] napoleon
 - [x] sphinx-autodoc-typehints
-- [ ] Towncrier
+- [x] towncrier
 
 ## CI/CD
 
