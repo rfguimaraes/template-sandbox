@@ -3,5 +3,10 @@
 # SPDX-License-Identifier: Apache-2.0
 
 """Template for python projects."""
+from importlib.metadata import version, PackageNotFoundError
 
-__version__ = "0.1.0"
+
+try:
+    __version__ = version(__name__)
+except PackageNotFoundError:  # pragma: no cover
+    __version__ = "unknown"
