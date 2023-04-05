@@ -7,7 +7,7 @@ SPDX-License-Identifier: CC-BY-4.0
 # Template-Sandbox
 
 This project is a simple template that I am building for my own python projects.
-Among mostly on these pieces of writing:
+The setup and plan are based mostly on these pieces of writing:
 
 - [Hypermodern Python by Claudio Jolowicz](https://cjolowicz.github.io/posts/hypermodern-python-01-setup)
 - [This answer by michau on StackOverflow](https://stackoverflow.com/a/71110028)
