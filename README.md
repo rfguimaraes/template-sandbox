@@ -73,9 +73,9 @@ In the (near?) future I will convert this template-sandbox into a proper cruft/c
     - [x] end-of-file-fixer
     - [x] trailing-whitespace-fixer
     - [x] check-yaml
-    - [ ] debug-statements
-    - [ ] check-added-large-files
-    - [ ] check-ast
+    - [x] debug-statements
+    - [x] check-added-large-files
+    - [x] check-ast
 
 ### Type checking
 

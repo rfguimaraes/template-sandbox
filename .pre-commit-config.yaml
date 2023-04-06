@@ -28,6 +28,30 @@ repos:
       stages: [commit, push, manual]
       additional_dependencies:
         - pre-commit-hooks
+    - id: debug-statements
+      name: debug-statements
+      entry: debug-statements
+      language: python
+      types: [python]
+      stages: [commit, push, manual]
+      additional_dependencies:
+        - pre-commit-hooks
+    - id: check-added-large-files
+      name: check for added large files
+      description: prevents giant files from being committed.
+      entry: check-added-large-files
+      language: python
+      stages: [commit, push, manual]
+      additional_dependencies:
+        - pre-commit-hooks
+    - id: check-ast
+      name: check python ast
+      description: simply checks whether the files parse as valid python.
+      entry: check-ast
+      language: python
+      types: [python]
+      additional_dependencies:
+        - pre-commit-hooks
 
   - repo: local
     hooks:
