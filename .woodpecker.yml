@@ -22,4 +22,6 @@ pipeline:
       - poetry publish --username=__token__ --repository testpypi --password=$TEST_PYPI_TOKEN
     secrets: [ test_pypi_token ]
     when:
+      event: tag
       tag: v*
+      branch: main
