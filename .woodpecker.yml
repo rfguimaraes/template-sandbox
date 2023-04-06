@@ -22,4 +22,5 @@ pipeline:
     environment:
       TEST_PYPI_TOKEN: $TEST_PYPI_TOKEN
     when:
-      event: deployment
+      tag: v*
+      branch: main
