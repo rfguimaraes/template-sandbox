@@ -29,7 +29,6 @@ services:
     environment:
       - WOODPECKER_SERVER=woodpecker-server:9000
       - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
-      - TEST_PYPI_TOKEN=${TEST_PYPI_TOKEN}
 
 volumes:
   woodpecker-server-data:

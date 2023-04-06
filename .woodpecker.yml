@@ -18,9 +18,8 @@ pipeline:
       - poetry install --all-extras
       - nox
       - poetry build
-      - poetry publish --username=__token__ --password=${TEST_PYPI_TOKEN}
-    environment:
-      TEST_PYPI_TOKEN: $TEST_PYPI_TOKEN
+      - poetry config repositories.testpypi https://test.pypi.org/legacy/
+      - poetry publish --username=__token__ --repository testpypi --password=$TEST_PYPI_TOKEN
+    secrets: [ test_pypi_token ]
     when:
-      tag: v*
-      branch: main
+      tag: release-*
