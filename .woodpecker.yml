@@ -10,3 +10,16 @@ pipeline:
       - pip install poetry==1.4.1
       - poetry install --all-extras
       - nox
+  publish:
+    image: python:3.9-slim
+    commands:
+      - pip install nox==2022.11.21
+      - pip install poetry==1.4.1
+      - poetry install --all-extras
+      - nox
+      - poetry build
+      - poetry publish --username=__token__ --password=${TEST_PYPI_TOKEN}
+    environment:
+      TEST_PYPI_TOKEN: $TEST_PYPI_TOKEN
+    when:
+      event: deployment
