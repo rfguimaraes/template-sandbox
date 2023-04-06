@@ -3,6 +3,10 @@ Upstream-Name: Template-Sandbox
 Upstream-Contact: Ricardo Guimarães <rfguimaraes0@gmail.com>
 Source: https://github.com/rfguimaraes/template-sandbox
 
+Files: changelog.d/*.md
+Copyright: 2023 The Template-Sandbox Authors
+License: CC0-1.0
+
 # Sample paragraph, commented out:
 #
 # Files: src/*
