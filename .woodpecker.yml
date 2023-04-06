@@ -22,4 +22,4 @@ pipeline:
       - poetry publish --username=__token__ --repository testpypi --password=$TEST_PYPI_TOKEN
     secrets: [ test_pypi_token ]
     when:
-      tag: release-*
+      tag: v*
