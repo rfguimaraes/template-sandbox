@@ -66,9 +66,6 @@ In the (near?) future I will convert this template-sandbox into a proper cruft/c
 - [x] black pre-commit hook
 - [x] safety
 - [x] pylint
-- [ ] hadolint
-- [ ] ShellCheck
-- [ ] shfmt
 - [x] pre-commit-hooks
     - [x] end-of-file-fixer
     - [x] trailing-whitespace-fixer
