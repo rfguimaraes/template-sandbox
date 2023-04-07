@@ -17,8 +17,8 @@ directory = "changelog.d"
 start_string = "<!-- towncrier release notes start -->\n"
 underlines = ["", "", ""]
 template = "changelog.d/changelog_template.jinja"
-title_format = "## [{version}](https://github.com/twisted/my-project/tree/{version}) - {project_date}"
-issue_format = "[#{issue}](https://github.com/twisted/my-project/issues/{issue})"
+title_format = "## [{version}](https://github.com/rfguimaraes/template-sandbox/tree/v{version}) - {project_date}"
+issue_format = "[#{issue}](https://github.com/template-sandbox/issues/{issue})"
 
 [[tool.towncrier.type]]
 directory = "security"
