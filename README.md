@@ -97,7 +97,7 @@ In the (near?) future I will convert this template-sandbox into a proper cruft/c
 - [x] Woodpecker CI/CD setup (local) + Localtunnel script
 - [x] Build recipe
 - [ ] Renovate
-- [ ] TestPyPI
+- [x] TestPyPI
 - [ ] ReadTheDocs
 
 ### Logging
