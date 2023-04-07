@@ -14,6 +14,15 @@ This project uses [*towncrier*](https://towncrier.readthedocs.io/) and the chang
 
 <!-- towncrier release notes start -->
 
+## [0.1.0a4](https://github.com/rfguimaraes/template-sandbox/tree/v0.1.0a4) - 2023-04-07
+
+
+
+### Fixed
+
+- Remove branch filtering from publish task (CI)
+
+
 ## [0.1.0a3](https://github.com/rfguimaraes/template-sandbox/tree/v0.1.0a3) - 2023-04-07
 
 
