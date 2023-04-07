@@ -98,7 +98,8 @@ In the (near?) future I will convert this template-sandbox into a proper cruft/c
 - [x] Build recipe
 - [ ] Renovate
 - [x] TestPyPI
-- [ ] ReadTheDocs
+- [ ] PyPI (disabled by default)
+- [ ] ReadTheDocs (disabled by default)
 
 ### Logging
 
