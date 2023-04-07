@@ -65,7 +65,7 @@ In the (near?) future I will convert this template-sandbox into a proper cruft/c
 - [x] black
 - [x] black pre-commit hook
 - [x] safety
-- [ ] pylint (check speed to decide if it is worth as a pre-commit hook)
+- [x] pylint
 - [ ] hadolint
 - [ ] ShellCheck
 - [ ] shfmt

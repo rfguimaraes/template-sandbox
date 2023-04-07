@@ -2,6 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+# pylint: disable=invalid-name
 """Sphinx configuration."""
 
 project = "template-sandbox"

@@ -3,55 +3,15 @@
 # SPDX-License-Identifier: Apache-2.0
 
 repos:
-  - repo: local
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0  # Use the ref you want to point at
     hooks:
-    - id: trailing-whitespace
-      name: trailing-whitespace
-      entry: trailing-whitespace-fixer
-      language: python
-      types: [text]
-      stages: [commit, push, manual]
-      additional_dependencies:
-        - pre-commit-hooks
-    - id: check-yaml
-      name: check-yaml
-      entry: check-yaml
-      language: python
-      types: [yaml]
-      additional_dependencies:
-        - pre-commit-hooks
-    - id: end-of-file-fixer
-      name: end-of-file-fixer
-      entry: end-of-file-fixer
-      language: python
-      types: [text]
-      stages: [commit, push, manual]
-      additional_dependencies:
-        - pre-commit-hooks
-    - id: debug-statements
-      name: debug-statements
-      entry: debug-statements
-      language: python
-      types: [python]
-      stages: [commit, push, manual]
-      additional_dependencies:
-        - pre-commit-hooks
-    - id: check-added-large-files
-      name: check for added large files
-      description: prevents giant files from being committed.
-      entry: check-added-large-files
-      language: python
-      stages: [commit, push, manual]
-      additional_dependencies:
-        - pre-commit-hooks
-    - id: check-ast
-      name: check python ast
-      description: simply checks whether the files parse as valid python.
-      entry: check-ast
-      language: python
-      types: [python]
-      additional_dependencies:
-        - pre-commit-hooks
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: debug-statements
+      - id: check-added-large-files
+      - id: check-ast
 
   - repo: local
     hooks:
@@ -70,6 +30,19 @@ repos:
         language: system
         types: [python]
         require_serial: true
+
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        args:
+          [
+            "-rn", # Only display messages
+            "-sn", # Don't display the score
+          ]
 
   - repo: local
     hooks:
