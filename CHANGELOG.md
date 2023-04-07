@@ -13,3 +13,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 This project uses [*towncrier*](https://towncrier.readthedocs.io/) and the changes for the upcoming release can be found in <https://github.com/twisted/my-project/tree/main/changelog.d/>.
 
 <!-- towncrier release notes start -->
+
+## [0.1.0a3](https://github.com/rfguimaraes/template-sandbox/tree/v0.1.0a3) - 2023-04-07
+
+
+
+### Added
+
+- Feat: add debug-statements, check-added-large-files, and check-ast pre-commit hooks [#1](https://github.com/template-sandbox/issues/1)
+- Added pylint to lint session (nox) and pre-commit hook [#7](https://github.com/template-sandbox/issues/7)
+- Feat: programmatically determine package version from pyproject.toml
+- Use towncrier to manage the changelog
+
+
+### Fixed
+
+- Fixed project links in the changelog template [#8](https://github.com/template-sandbox/issues/8)
