@@ -36,6 +36,7 @@ pytest-mock = "^3.10.0"
 ruff = "^0.0.260"
 black = "^23.3.0"
 safety = "^2.3.5"
+pylint = "^2.17.2"
 
 
 [tool.poetry.group.type.dependencies]

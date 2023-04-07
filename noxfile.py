@@ -5,11 +5,11 @@
 """Definition of nox sessions (tasks)."""
 
 import tempfile
-import nox
-from poetry.factory import Factory
+import nox  # pylint: disable=import-error
+from poetry.factory import Factory  # pylint: disable=import-error
 
 
-package = "template_sandbox"
+PACKAGE_NAME = "template_sandbox"
 
 
 def _install_on_nox_from_poetry_lock(
@@ -57,7 +57,7 @@ def typeguard(session: nox.Session) -> None:
     names = [x.name for x in dependencies]
     _install_on_nox_from_poetry_lock(session, ("--with", "test,type"), *names)
     session.run("poetry", "install", "--only", "main", external=True)
-    session.run("pytest", f"--typeguard-packages={package}", *args)
+    session.run("pytest", f"--typeguard-packages={PACKAGE_NAME}", *args)
 
 
 @nox.session(python=["3.9"])
@@ -66,14 +66,20 @@ def xdoctest(session: nox.Session) -> None:
     args = session.posargs or ["all"]
     _install_on_nox_from_poetry_lock(session, ("--with", "docs"), "xdoctest")
     session.run("poetry", "install", "--only", "main", external=True)
-    session.run("python", "-m", "xdoctest", package, *args)
+    session.run("python", "-m", "xdoctest", PACKAGE_NAME, *args)
 
 
 @nox.session(python=["3.9"])
 def lint(session: nox.Session) -> None:
-    """Lint check with ruff."""
+    """Lint check with ruff and pylint."""
     args = session.posargs or locations
-    _install_on_nox_from_poetry_lock(session, ("--only", "lint"), "ruff")
+    config = Factory().create_poetry()
+    dependencies = config.package.dependency_group("lint").dependencies
+    dependencies.extend(config.package.dependency_group("test").dependencies)
+    names = [x.name for x in dependencies]
+    _install_on_nox_from_poetry_lock(session, ("--with", "lint,test"), *names)
+    session.run("poetry", "install", "--only", "main", external=True)
+    session.run("pylint", *args)
     session.run("ruff", "check", *args)
 
 
