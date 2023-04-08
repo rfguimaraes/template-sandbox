@@ -10,8 +10,6 @@ pipeline:
       - pip install poetry==1.4.1
       - poetry install --all-extras
       - nox
-    when:
-      event: [ push, tag ]
   publish:
     image: python:3.9-slim
     commands:
