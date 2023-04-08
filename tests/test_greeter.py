@@ -27,7 +27,7 @@ def test_main_greeter_correct_greeting(capsys: pytest.CaptureFixture[str]) -> No
 @example("")
 def test_shout_ensures_exclamation_mark(message: str) -> None:
     """
-    Test the conversion of message to shout-like string.
+    Test the conversion of a message to shout-like string.
 
     Test that the message has an exclamation mark at the end unless it is empty.
 
@@ -53,7 +53,7 @@ def test_empty_message_empty_shout() -> None:
 @example("!")
 def test_exclamation_ended_does_not_get_another(message: str) -> None:
     """
-    Test the conversion message ended by '!' to shout-like string.
+    Test the conversion of a message ended by '!' to shout-like string.
 
     Test that the message has an exclamation mark at the end unless it is empty.
 
@@ -65,3 +65,16 @@ def test_exclamation_ended_does_not_get_another(message: str) -> None:
     shout = greeter.message_to_shout(message)
     assert shout.count("!") == message.count("!")
     assert shout[-1] == "!"
+
+
+@given(text(min_size=1))
+def test_non_empty_input_non_empty_output(message: str) -> None:
+    """
+    Test that the conversion of a non-empty message is non-empty.
+
+    :param message: the message to be converted
+    :type message: the message to be converted
+    :returns: None
+    """
+    shout = greeter.message_to_shout(message)
+    assert len(shout) > 0
