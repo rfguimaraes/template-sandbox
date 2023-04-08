@@ -765,6 +765,39 @@ genshi = ["genshi"]
 lxml = ["lxml"]
 
 [[package]]
+name = "hypothesis"
+version = "6.71.0"
+description = "A library for property-based testing"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "hypothesis-6.71.0-py3-none-any.whl", hash = "sha256:06235b8ab3c4090bec96b07dfc2347611c1392e5b4ffa48c069f2c1337968725"},
+    {file = "hypothesis-6.71.0.tar.gz", hash = "sha256:b2c3bbead72189c0bba6e12848b484ceafadb6e872ac31e40013228239366221"},
+]
+
+[package.dependencies]
+attrs = ">=19.2.0"
+exceptiongroup = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
+sortedcontainers = ">=2.1.0,<3.0.0"
+
+[package.extras]
+all = ["backports.zoneinfo (>=0.2.1)", "black (>=19.10b0)", "click (>=7.0)", "django (>=3.2)", "dpcontracts (>=0.4)", "importlib-metadata (>=3.6)", "lark (>=0.10.1)", "libcst (>=0.3.16)", "numpy (>=1.9.0)", "pandas (>=1.0)", "pytest (>=4.6)", "python-dateutil (>=1.4)", "pytz (>=2014.1)", "redis (>=3.0.0)", "rich (>=9.0.0)", "tzdata (>=2023.3)"]
+cli = ["black (>=19.10b0)", "click (>=7.0)", "rich (>=9.0.0)"]
+codemods = ["libcst (>=0.3.16)"]
+dateutil = ["python-dateutil (>=1.4)"]
+django = ["django (>=3.2)"]
+dpcontracts = ["dpcontracts (>=0.4)"]
+ghostwriter = ["black (>=19.10b0)"]
+lark = ["lark (>=0.10.1)"]
+numpy = ["numpy (>=1.9.0)"]
+pandas = ["pandas (>=1.0)"]
+pytest = ["pytest (>=4.6)"]
+pytz = ["pytz (>=2014.1)"]
+redis = ["redis (>=3.0.0)"]
+zoneinfo = ["backports.zoneinfo (>=0.2.1)", "tzdata (>=2023.3)"]
+
+[[package]]
 name = "identify"
 version = "2.5.22"
 description = "File identification library for Python"
@@ -805,14 +838,14 @@ files = [
 
 [[package]]
 name = "importlib-metadata"
-version = "6.1.0"
+version = "6.2.0"
 description = "Read metadata from Python packages"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "importlib_metadata-6.1.0-py3-none-any.whl", hash = "sha256:ff80f3b5394912eb1b108fcfd444dc78b7f1f3e16b16188054bd01cb9cb86f09"},
-    {file = "importlib_metadata-6.1.0.tar.gz", hash = "sha256:43ce9281e097583d758c2c708c4376371261a02c34682491a8e98352365aad20"},
+    {file = "importlib_metadata-6.2.0-py3-none-any.whl", hash = "sha256:8388b74023a138c605fddd0d47cb81dd706232569f56c9aca7d9c7fdb54caeba"},
+    {file = "importlib_metadata-6.2.0.tar.gz", hash = "sha256:9127aad2f49d7203e7112098c12b92e4fd1061ccd18548cdfdc49171a8c073cc"},
 ]
 
 [package.dependencies]
@@ -1974,6 +2007,18 @@ files = [
 ]
 
 [[package]]
+name = "sortedcontainers"
+version = "2.4.0"
+description = "Sorted Containers -- Sorted List, Sorted Dict, Sorted Set"
+category = "dev"
+optional = false
+python-versions = "*"
+files = [
+    {file = "sortedcontainers-2.4.0-py2.py3-none-any.whl", hash = "sha256:a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0"},
+    {file = "sortedcontainers-2.4.0.tar.gz", hash = "sha256:25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88"},
+]
+
+[[package]]
 name = "sphinx"
 version = "6.1.3"
 description = "Python documentation generator"
@@ -2409,4 +2454,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.9"
-content-hash = "a6cb1160f95fda711f9a36dbfe42968871472a921245bbb21ec1a2e6be411998"
+content-hash = "5a4de0cec9fc2b520612857e495465bd1c5fb37b230c1a2b3d53960c4b53c240"

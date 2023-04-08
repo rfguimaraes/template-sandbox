@@ -113,7 +113,11 @@ def safety(session: nox.Session) -> None:
 def mypy(session: nox.Session) -> None:
     """Type check with mypy."""
     args = session.posargs or locations
-    _install_on_nox_from_poetry_lock(session, ("--with", "type"), "mypy")
+    config = Factory().create_poetry()
+    dependencies = config.package.dependency_group("test").dependencies
+    dependencies.extend(config.package.dependency_group("type").dependencies)
+    names = [x.name for x in dependencies]
+    _install_on_nox_from_poetry_lock(session, ("--with", "type,tests"), *names)
     session.run("poetry", "install", "--only", "main", external=True)
     session.run("mypy", *args)
 
