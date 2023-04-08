@@ -5,9 +5,9 @@
 """Definition of nox sessions (tasks)."""
 
 import tempfile
+
 import nox  # pylint: disable=import-error
 from poetry.factory import Factory  # pylint: disable=import-error
-
 
 PACKAGE_NAME = "template_sandbox"
 
@@ -84,10 +84,11 @@ def lint(session: nox.Session) -> None:
 
 
 @nox.session(python=["3.9"])
-def black(session: nox.Session) -> None:
-    """Format with black."""
+def reformat(session: nox.Session) -> None:
+    """Fix with ruff and format with black."""
     args = session.posargs or locations
-    _install_on_nox_from_poetry_lock(session, ("--only", "lint"), "black")
+    _install_on_nox_from_poetry_lock(session, ("--only", "lint"), "black", "ruff")
+    session.run("ruff", "--fix", *args)
     session.run("black", *args)
 
 

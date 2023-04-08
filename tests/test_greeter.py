@@ -5,7 +5,7 @@
 """Placeholder test for the main placeholder."""
 
 import pytest
-from template_sandbox import greeter, __version__
+from template_sandbox import __version__, greeter
 
 
 def test_main_greeter_correct_greeting(capsys: pytest.CaptureFixture[str]) -> None:

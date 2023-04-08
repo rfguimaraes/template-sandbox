@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 # Enable all rules that are not library specific
-select = ["ANN", "ARG", "A", "B", "BLE", "C4", "COM", "D", "DTZ", "E", "ERA", "EXE", "EM", "F", "G", "FBT", "ICN", "INP", "INT", "ISC", "N", "PGH", "PIE", "PL", "PLE", "PLR", "PLW", "PT", "PTH", "PYI", "Q", "RET", "RSE", "RUF", "S", "SLF", "TCH", "TID", "TRY", "UP", "SIM", "W", "YTT"]
+select = ["ANN", "ARG", "A", "B", "BLE", "C4", "COM", "D", "DTZ", "E", "ERA", "EXE", "EM", "F", "G", "FBT", "I", "ICN", "INP", "INT", "ISC", "N", "PGH", "PIE", "PL", "PLE", "PLR", "PLW", "PT", "PTH", "PYI", "Q", "RET", "RSE", "RUF", "S", "SLF", "TCH", "TID", "TRY", "UP", "SIM", "W", "YTT"]
 ignore = ["D211", "D212"]
 
 # Allow autofix for all enabled rules (when `--fix`) is provided.
