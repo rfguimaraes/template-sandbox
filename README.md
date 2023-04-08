@@ -89,7 +89,6 @@ In the (near?) future I will convert this template-sandbox into a proper cruft/c
 - [x] napoleon
 - [x] sphinx-autodoc-typehints
 - [x] towncrier
-- [ ] interrogate
 
 ### CI/CD
 
