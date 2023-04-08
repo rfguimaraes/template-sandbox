@@ -55,7 +55,7 @@ In the (near?) future I will convert this template-sandbox into a proper cruft/c
 - [x] pytest-cov
 - [x] nox
 - [x] pytest-mock
-- [ ] Hypothesis
+- [x] Hypothesis
 - [ ] MutMut
 
 ### Lint
