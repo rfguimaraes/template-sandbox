@@ -31,6 +31,7 @@ coverage = {extras = ["toml"], version = "^7.2.2"}
 pytest-cov = "^4.0.0"
 pytest-mock = "^3.10.0"
 hypothesis = "^6.71.0"
+mutmut = "^2.4.3"
 
 
 [tool.poetry.group.lint.dependencies]

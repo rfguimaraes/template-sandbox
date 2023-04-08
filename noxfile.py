@@ -45,6 +45,22 @@ def tests(session: nox.Session) -> None:
     _install_on_nox_from_poetry_lock(session, ("--with", "test"), *names)
     session.run("poetry", "install", "--only", "main", external=True)
     session.run("pytest", *args)
+    runner_tokens = ["pytest", "-x", "--assert=plain", *args]
+    runner_args = [f"'{s}'" if " " in s else s for s in runner_tokens]
+    runner_config = " ".join(runner_args)
+    session.run("mutmut", "run", "--runner", runner_config)
+
+
+@nox.session(python=["3.9"])
+def mutmut(session: nox.Session) -> None:
+    """Run mutation tests."""
+    args = session.posargs
+    config = Factory().create_poetry()
+    dependencies = config.package.dependency_group("test").dependencies
+    names = [x.name for x in dependencies]
+    _install_on_nox_from_poetry_lock(session, ("--with", "test"), *names)
+    session.run("poetry", "install", "--only", "main", external=True)
+    session.run("mutmut", "run", *args)
 
 
 @nox.session(python=["3.9"])
