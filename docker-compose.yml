@@ -38,8 +38,6 @@ services:
     environment:
       - RENOVATE_TOKEN=${RENOVATE_TOKEN}
       - RENOVATE_PLATFORM=github
-      - RENOVATE_ENDPOINT=https://github.com/
-      - RENOVATE_AUTODISCOVER=true
 
 volumes:
   woodpecker-server-data:
