@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "platform": "github",
+  "repositories": [
+    "your-github-username/your-github-repository"
+  ],
+  "schedule": [
+    "every hour"
+  ]
+}

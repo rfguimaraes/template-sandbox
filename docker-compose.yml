@@ -30,5 +30,15 @@ services:
       - WOODPECKER_SERVER=woodpecker-server:9000
       - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
 
+  renovate:
+    image: renovate/renovate
+    volumes:
+      - .:/app
+    environment:
+      - RENOVATE_TOKEN=${RENOVATE_TOKEN}
+      - RENOVATE_PLATFORM=github
+      - RENOVATE_ENDPOINT=https://github.com/
+      - RENOVATE_AUTODISCOVER=true
+
 volumes:
   woodpecker-server-data:
