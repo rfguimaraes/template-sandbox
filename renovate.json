@@ -4,7 +4,7 @@
   ],
   "platform": "github",
   "repositories": [
-    "your-github-username/your-github-repository"
+    "rfguimaraes/template-sandbox"
   ],
   "schedule": [
     "every hour"
