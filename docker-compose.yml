@@ -31,8 +31,9 @@ services:
       - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
 
   renovate:
-    image: renovate/renovate
+    image: renovate/renovate:slim
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - .:/app
     environment:
       - RENOVATE_TOKEN=${RENOVATE_TOKEN}
