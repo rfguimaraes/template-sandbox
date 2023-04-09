@@ -1,12 +1,9 @@
 {
-  "extends": [
-    "config:base"
-  ],
-  "platform": "github",
-  "repositories": [
-    "rfguimaraes/template-sandbox"
-  ],
-  "schedule": [
-    "every hour"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+    }
   ]
 }
