@@ -30,12 +30,12 @@ In the meantime, when you **fork** the project, you can set it up using these st
 5. Setup an OAuth application for Woodpecker on Github.
 6. Setup a personal token for Renovate
 7. Create a TestPyPI account and token
-8.
-9. Fill in the missing variables from `docker-compose.yml` in new file called `.env` in the project root.
-10. Start the CI and Renovate with `docker compose up -d`
-11. Log in into the Woodpecker container (e.g. if nothing was changed, by going to `localhost:8082`)
-12. Enable the repository
-13. Add the TestPyPI token as a secret named `test_pypi_token`
+8. Fill in the missing variables from `docker-compose.yml` in new file called `.env` in the project root.
+9. Start the CI and Renovate with `docker compose up -d`
+10. Log in into the Woodpecker container (e.g. if nothing was changed, by going to `localhost:8082`)
+11. Enable the repository
+12. Add the TestPyPI token as a secret named `test_pypi_token`
+13. Check that the project can be built locally using `nox`
 
 ## Components
 
