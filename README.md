@@ -56,7 +56,7 @@ In the (near?) future I will convert this template-sandbox into a proper cruft/c
 - [x] nox
 - [x] pytest-mock
 - [x] Hypothesis
-- [ ] MutMut
+- [x] MutMut
 
 ### Lint
 
@@ -95,7 +95,7 @@ In the (near?) future I will convert this template-sandbox into a proper cruft/c
 - [x] Trufflehog (Consider removing as pre-commit hook due to time, consider changing to detect-secrets due to license issues)
 - [x] Woodpecker CI/CD setup (local) + Localtunnel script
 - [x] Build recipe
-- [ ] Renovate
+- [x] Renovate
 - [x] TestPyPI
 - [ ] PyPI (disabled by default)
 - [ ] ReadTheDocs (disabled by default)
