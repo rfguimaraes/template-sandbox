@@ -21,6 +21,22 @@ That is why, if you read the references above, you will notice that some signifi
 
 In the (near?) future I will convert this template-sandbox into a proper cruft/cookicutter/cookieninja template.
 
+In the meantime, when you **fork** the project, you can set it up using these steps:
+
+1. `conda create --name <environment name> --file conda-linux-64.lock`
+2. `poetry install --all-extras`
+3. `pre-commit install`
+4.  Get a URL with localtunnel: `./createtunnel.sh`
+5. Setup an OAuth application for Woodpecker on Github.
+6. Setup a personal token for Renovate
+7. Create a TestPyPI account and token
+8.
+9. Fill in the missing variables from `docker-compose.yml` in new file called `.env` in the project root.
+10. Start the CI and Renovate with `docker compose up -d`
+11. Log in into the Woodpecker container (e.g. if nothing was changed, by going to `localhost:8082`)
+12. Enable the repository
+13. Add the TestPyPI token as a secret named `test_pypi_token`
+
 ## Components
 
 ### Information Files
