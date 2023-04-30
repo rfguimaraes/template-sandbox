@@ -4,14 +4,14 @@
 
 pipeline:
   tests:
-    image: python:3.9-slim
+    image: python:3.11-slim
     commands:
       - pip install nox==2022.11.21
       - pip install poetry==1.4.1
       - poetry install --all-extras
       - nox
   publish:
-    image: python:3.9-slim
+    image: python:3.11-slim
     commands:
       - pip install nox==2022.11.21
       - pip install poetry==1.4.1
