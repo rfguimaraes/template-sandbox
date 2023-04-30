@@ -7,6 +7,7 @@
 import pytest
 from hypothesis import example, given
 from hypothesis.strategies import text
+from pytest_mock import MockerFixture
 from template_sandbox import __version__, greeter
 
 
@@ -78,3 +79,14 @@ def test_non_empty_input_non_empty_output(message: str) -> None:
     """
     shout = greeter.message_to_shout(message)
     assert len(shout) > 0
+
+
+def test_empty_message_log_info(mocker: MockerFixture) -> None:
+    """
+    Test log call when message is empty.
+
+    Test that the logger is called with message "Hi" at debug level.
+    """
+    mock_info = mocker.patch.object(greeter.LOGGER, "info")
+    greeter.message_to_shout("")
+    mock_info.assert_called_once_with("Empty or invalid message received")

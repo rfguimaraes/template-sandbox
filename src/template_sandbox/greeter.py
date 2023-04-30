@@ -4,7 +4,11 @@
 
 """Placeholder file with a 'hello world'."""
 
+import structlog_sentry_logger as stlg
+
 from . import __version__
+
+LOGGER = stlg.get_logger()
 
 
 def main() -> None:
@@ -23,6 +27,7 @@ def message_to_shout(message: str) -> str:
     :rtype: str
     """
     if not message:
+        LOGGER.info("Empty or invalid message received")
         return ""
     new_message = message.upper()
     if new_message[-1] != "!":
