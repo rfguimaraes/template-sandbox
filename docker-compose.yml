@@ -31,7 +31,7 @@ services:
       - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
 
   renovate:
-    image: renovate/renovate:35.41-slim
+    image: renovate/renovate:35.66-slim
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - .:/app/
