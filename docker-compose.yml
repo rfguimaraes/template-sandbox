@@ -30,18 +30,5 @@ services:
       - WOODPECKER_SERVER=woodpecker-server:9000
       - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
 
-  renovate:
-    image: renovate/renovate:35.66-slim
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - .:/app/
-    environment:
-      - RENOVATE_TOKEN=${RENOVATE_TOKEN}
-      - RENOVATE_PLATFORM=github
-      - RENOVATE_BASE_BRANCH=main
-      - RENOVATE_REPOSITORIES=rfguimaraes/template-sandbox
-      - RENOVATE_AUTODISCOVER=false
-      - RENOVATE_SCHEDULE="0 * * * *"
-
 volumes:
   woodpecker-server-data:
