@@ -807,14 +807,14 @@ lxml = ["lxml"]
 
 [[package]]
 name = "hypothesis"
-version = "6.75.0"
+version = "6.75.2"
 description = "A library for property-based testing"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "hypothesis-6.75.0-py3-none-any.whl", hash = "sha256:d25500ee50a7b9cbaebcfd8a200f4b95f61fef7be55705562ece3f1ab2e86558"},
-    {file = "hypothesis-6.75.0.tar.gz", hash = "sha256:3d5f3ade3f1638d5d8cbd9bf186773ee77b826f56095be7fa04b7cf5f788435c"},
+    {file = "hypothesis-6.75.2-py3-none-any.whl", hash = "sha256:29fee1fabf764eb021665d20e633ef7ba931c5841de20f9ff3e01e8a512d6a4d"},
+    {file = "hypothesis-6.75.2.tar.gz", hash = "sha256:50c270b38d724ce0fefa71b8e3511d123f7a31a9af9ea003447d4e1489292fbc"},
 ]
 
 [package.dependencies]
