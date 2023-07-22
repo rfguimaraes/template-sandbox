@@ -12,7 +12,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "~3.9"
-conda-lock = "^1.4.0"
+conda-lock = "^2.0.0"
 structlog-sentry-logger = "^1.0.1"
 requests = "^2.31.0"
 cryptography = "^41.0.0"
