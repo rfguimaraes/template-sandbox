@@ -35,7 +35,7 @@ locations = "src", "tests", "noxfile.py", "docs/conf.py"
 nox.options.sessions = "lint", "safety", "tests", "mypy"
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.9", "3.10", "3.11"])
 def tests(session: nox.Session) -> None:
     """Run tests."""
     args = session.posargs or ["--cov", "-m", "not e2e"]
@@ -51,7 +51,7 @@ def tests(session: nox.Session) -> None:
     session.run("mutmut", "run", "--runner", runner_config)
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.9", "3.10", "3.11"])
 def mutmut(session: nox.Session) -> None:
     """Run mutation tests."""
     args = session.posargs
@@ -63,7 +63,7 @@ def mutmut(session: nox.Session) -> None:
     session.run("mutmut", "run", *args)
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.9", "3.10", "3.11"])
 def typeguard(session: nox.Session) -> None:
     """Run tests with additional typecheck."""
     args = session.posargs or ["-m", "not e2e"]
@@ -76,7 +76,7 @@ def typeguard(session: nox.Session) -> None:
     session.run("pytest", f"--typeguard-packages={PACKAGE_NAME}", *args)
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.9", "3.10", "3.11"])
 def xdoctest(session: nox.Session) -> None:
     """Test examples in documentation with xdoctest."""
     args = session.posargs or ["all"]
@@ -85,7 +85,7 @@ def xdoctest(session: nox.Session) -> None:
     session.run("python", "-m", "xdoctest", PACKAGE_NAME, *args)
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.9", "3.10", "3.11"])
 def lint(session: nox.Session) -> None:
     """Lint check with ruff and pylint."""
     args = session.posargs or locations
@@ -99,7 +99,7 @@ def lint(session: nox.Session) -> None:
     session.run("ruff", "check", *args)
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.11"])
 def reformat(session: nox.Session) -> None:
     """Fix with ruff and format with black."""
     args = session.posargs or locations
@@ -108,14 +108,14 @@ def reformat(session: nox.Session) -> None:
     session.run("black", *args)
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.11"])
 def safety(session: nox.Session) -> None:
     """Safety check with public repository."""
     with tempfile.NamedTemporaryFile() as requirements:
         session.run(
             "poetry",
             "export",
-            "--with=dev,lint,tests",
+            "--with=dev,lint,test",
             "--format=requirements.txt",
             "--without-hashes",
             f"--output={requirements.name}",
@@ -125,7 +125,7 @@ def safety(session: nox.Session) -> None:
         session.run("safety", "check", f"--file={requirements.name}", "--full-report")
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.9", "3.10", "3.11"])
 def mypy(session: nox.Session) -> None:
     """Type check with mypy."""
     args = session.posargs or locations
@@ -133,12 +133,12 @@ def mypy(session: nox.Session) -> None:
     dependencies = config.package.dependency_group("test").dependencies
     dependencies.extend(config.package.dependency_group("type").dependencies)
     names = [x.name for x in dependencies]
-    _install_on_nox_from_poetry_lock(session, ("--with", "type,tests"), *names)
+    _install_on_nox_from_poetry_lock(session, ("--with", "type,test"), *names)
     session.run("poetry", "install", "--only", "main", external=True)
     session.run("mypy", *args)
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.11"])
 def docs(session: nox.Session) -> None:
     """Build the documentation using Sphinx."""
     config = Factory().create_poetry()
