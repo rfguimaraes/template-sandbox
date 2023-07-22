@@ -6,7 +6,7 @@
 ARG WORKDIR="/app"
 
 # Stage 1: Build from python 3.9
-FROM python:3.9-slim AS builder
+FROM python:3.11-slim AS builder
 
 # Activate argument
 ARG WORKDIR
@@ -28,7 +28,7 @@ COPY . .
 RUN poetry install --only main
 
 # Stage 2: running app with python 3.9
-FROM python:3.9-alpine
+FROM python:3.11-alpine
 
 # Activate argument
 ARG WORKDIR
