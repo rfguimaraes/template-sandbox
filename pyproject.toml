@@ -19,7 +19,7 @@ cryptography = "^41.0.0"
 
 
 [tool.poetry.group.reuse.dependencies]
-reuse = "^1.1.2"
+reuse = "^2.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
