@@ -5,7 +5,7 @@
 version: "3.8"
 services:
   renovate:
-    image: renovate/renovate:36.18-slim
+    image: renovate/renovate:36.19-slim
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - .:/app/
