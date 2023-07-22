@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-docker compose -f docker-compose-renovate.yml up -d --remove-orphans
+docker compose -f docker-compose-renovate.yml up -d
