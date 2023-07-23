@@ -23,7 +23,7 @@ def message_to_shout(message: str) -> str:
     :param message: The message to convert to "shout"
     :type message: str
     :return: The shout-formatted message if the string is not empty,
-    empty string otherwise
+        empty string otherwise
     :rtype: str
     """
     if not message:
