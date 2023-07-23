@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2023 The Template-Sandbox Authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+pipeline:
+  buildimage:
+    image: plugins/docker
+    settings:
+      repo: rfguimaraes/template-sandbox
+      dry_run: true
+
+depends_on:
+  - test
