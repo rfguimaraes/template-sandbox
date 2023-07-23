@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 pipeline:
-  tests:
+  test:
     image: python:${PYTHON_VERSION}-slim
     commands:
       - pip install nox==2023.4.22
