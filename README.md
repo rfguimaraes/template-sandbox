@@ -12,7 +12,7 @@ The setup and plan are based mostly on these pieces of writing and existing proj
 - [Hypermodern Python by Claudio Jolowicz](https://cjolowicz.github.io/posts/hypermodern-python-01-setup)
 - [This answer by michau on StackOverflow](https://stackoverflow.com/a/71110028)
 - [An opinionated guide to Python environments in 2021 by James Ravenscroft](https://brainsteam.co.uk/2021/04/01/opinionated-guide-to-virtualenvs/)
-- [PyScaffold](pyscaffold.org/)
+- [PyScaffold](https://pyscaffold.org/)
 - [cookiecutter-cruft-poetry-tox-pre-commit-ci-cd](https://cookiecutter-cruft-poetry-tox-pre-commit-ci-cd.readthedocs.io/en/latest/#)
 
 
