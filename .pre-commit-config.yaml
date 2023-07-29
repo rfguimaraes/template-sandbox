@@ -59,12 +59,9 @@ repos:
         types: [python]
         args: [--no-strict-optional, --ignore-missing-imports]
 
-  - repo: local
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
     hooks:
-      - id: trufflehog
-        name: TruffleHog
-        description: Detect secrets in your data.
-        # For running trufflehog in docker, use the following entry instead:
-        entry: bash -c 'docker run --rm -v "$(pwd):/workdir" -i --rm trufflesecurity/trufflehog:latest git file:///workdir --since-commit HEAD --only-verified --fail'
-        language: system
-        stages: ["commit", "push"]
+    - id: detect-secrets
+      args: ['--baseline', '.secrets.baseline']
+      exclude: poetry.lock  conda-linux64.lock

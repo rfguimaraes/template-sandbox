@@ -636,6 +636,25 @@ test = ["pretend", "pytest (>=6.2.0)", "pytest-benchmark", "pytest-cov", "pytest
 test-randomorder = ["pytest-randomly"]
 
 [[package]]
+name = "detect-secrets"
+version = "1.4.0"
+description = "Tool for detecting secrets in the codebase"
+optional = false
+python-versions = "*"
+files = [
+    {file = "detect_secrets-1.4.0-py3-none-any.whl", hash = "sha256:d08ecabeee8b68c0acb0e8a354fb98d822a653f6ed05e520cead4c6fc1fc02cd"},
+    {file = "detect_secrets-1.4.0.tar.gz", hash = "sha256:d56787e339758cef48c9ccd6692f7a094b9963c979c9813580b0169e41132833"},
+]
+
+[package.dependencies]
+pyyaml = "*"
+requests = "*"
+
+[package.extras]
+gibberish = ["gibberish-detector"]
+word-list = ["pyahocorasick"]
+
+[[package]]
 name = "dill"
 version = "0.3.7"
 description = "serialize all of Python"
@@ -2747,4 +2766,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.12"
-content-hash = "c0166308047107d1b93fd55de51619adf7c038f23cd7588fcf9035803fffd21c"
+content-hash = "27b8375fefa37b82e01f74932850163e8800587daae2fce4715b972138e5776a"
