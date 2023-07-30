@@ -5,7 +5,7 @@
 version: "3.8"
 services:
   woodpecker-server:
-    image: woodpeckerci/woodpecker-server:latest
+    image: woodpeckerci/woodpecker-server:v1.0
     ports:
       - 8082:8000
     volumes:
@@ -19,7 +19,7 @@ services:
       - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
 
   woodpecker-agent:
-    image: woodpeckerci/woodpecker-agent:latest
+    image: woodpeckerci/woodpecker-agent:v1.0
     command: agent
     restart: always
     depends_on:

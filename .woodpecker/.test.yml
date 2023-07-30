@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-pipeline:
+steps:
   test:
     image: python:${PYTHON_VERSION}-slim
     commands:
