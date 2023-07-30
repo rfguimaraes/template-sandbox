@@ -43,13 +43,12 @@ In the meantime, when you **fork** the project, you can set it up using these st
 
 - [x] AUTHORS.md
 - [x] CHANGELOG.md
-- [ ] CONTRIBUTING.md
+- [x] CONTRIBUTING.md
 - [x] README.md
 
 ### Environment and CUDA dependencies
 
-- [x] Conda
-- [x] Mamba
+- [x] Conda/Mamba
 
 ### Dependency management
 
@@ -118,4 +117,4 @@ In the meantime, when you **fork** the project, you can set it up using these st
 
 ### Logging
 
-- [ ] structlog-sentry-logger
+- [x] structlog-sentry-logger
